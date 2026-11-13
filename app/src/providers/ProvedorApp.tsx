@@ -2,18 +2,11 @@ import { useEffect, type ReactNode } from 'react'
 import { useLocation } from 'react-router'
 import { LazyMotion, MotionConfig, domAnimation } from 'motion/react'
 
-type AppProviderProps = {
+type ProvedorAppProps = {
   children: ReactNode
 }
 
-/**
- * Regras e lógica globais da aplicação.
- * - Motion: usa LazyMotion (bundle menor) e respeita a preferência
- *   de movimento reduzido do sistema operacional.
- * - Rolagem: ao trocar de rota volta ao topo; se a URL tiver âncora (#secao),
- *   rola até a seção correspondente.
- */
-export function AppProvider({ children }: AppProviderProps) {
+export function ProvedorApp({ children }: ProvedorAppProps) {
   const { pathname, hash } = useLocation()
 
   useEffect(() => {

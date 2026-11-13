@@ -1,32 +1,42 @@
-# React + TypeScript + Vite
+# O termo que faltava · Equações de Maxwell
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Página interativa sobre a corrente de deslocamento, as quatro equações de Maxwell e a origem da luz.
+Trabalho de Fundamentos de Eletromagnetismo.
 
-Currently, two official plugins are available:
+Site: https://equacoes-de-maxwell.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Como rodar
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Scripts
+
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | servidor de desenvolvimento |
+| `npm run build` | gera a versão de produção em `dist/` |
+| `npm run preview` | serve a versão de produção localmente |
+| `npm run lint` | verifica o código com o ESLint |
+
+## Tecnologias
+
+React, TypeScript, Vite, Tailwind CSS, Motion, KaTeX e React Router.
+
+## Estrutura
+
+```
+src/
+├── components/
+│   ├── interface/    peças reutilizáveis (fórmula, seção, controles)
+│   ├── layout/       cabeçalho e rodapé
+│   ├── secoes/       uma seção da página por arquivo
+│   └── simulacoes/   simulações interativas
+├── dados/            seções da página e perguntas do quiz
+├── funcoes/          física, formatação de números e cores
+├── pages/            páginas (Inicio e NaoEncontrada)
+├── providers/        configurações globais
+└── App.tsx           rotas
+```

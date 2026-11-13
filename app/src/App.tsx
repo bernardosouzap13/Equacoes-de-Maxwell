@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
-import { AppProvider } from './providers/AppProvider'
-import { Home } from './pages/Home'
-import { NotFound } from './pages/NotFound'
+import { ProvedorApp } from './providers/ProvedorApp'
+import { Inicio } from './pages/Inicio'
+import { NaoEncontrada } from './pages/NaoEncontrada'
 import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
-      <AppProvider>
+      <ProvedorApp>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Inicio />} />
+          <Route path="*" element={<NaoEncontrada />} />
         </Routes>
-      </AppProvider>
+      </ProvedorApp>
     </BrowserRouter>
   )
 }

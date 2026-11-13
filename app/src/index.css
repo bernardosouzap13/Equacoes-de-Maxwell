@@ -1,1 +1,117 @@
 @import "tailwindcss";
+
+@theme {
+  --font-texto: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-titulo: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-codigo: ui-monospace, "SFMono-Regular", "Cascadia Code", Consolas, monospace;
+
+  --color-tinta-950: #ffffff;
+  --color-tinta-900: #fbfaf5;
+  --color-tinta-850: #f4f2e9;
+  --color-tinta-800: #eceadf;
+  --color-tinta-700: #e2dfd1;
+  --color-tinta-600: #c9c5b3;
+  --color-tinta-400: #66645a;
+  --color-tinta-300: #47453d;
+  --color-tinta-200: #302e28;
+  --color-tinta-50: #14130f;
+
+  --color-primaria: #facc15;
+  --color-primaria-clara: #fef9c3;
+
+  --color-campo-e: #c2410c;
+  --color-campo-b: #0369a1;
+  --color-desloc: #a16207;
+  --color-corrente: #15803d;
+  --color-carga-pos: #dc2626;
+  --color-carga-neg: #475569;
+
+  --color-certo: #15803d;
+  --color-errado: #dc2626;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-tinta-950 font-texto text-tinta-200 antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-titulo text-tinta-50;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-primaria);
+    color: var(--color-tinta-50);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-campo-b);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+@layer components {
+  .container-pagina {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .painel {
+    @apply rounded-2xl border border-tinta-700 bg-tinta-900 shadow-[0_1px_2px_rgb(20_19_15/0.04)];
+  }
+
+  .bloco-formula {
+    @apply max-w-full overflow-x-auto overflow-y-hidden py-1;
+    scrollbar-width: thin;
+  }
+}
+
+.katex {
+  font-size: 1.12em;
+}
+.katex-display {
+  margin: 0;
+}
+
+@keyframes onda-abertura {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fluxo-corrente {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
